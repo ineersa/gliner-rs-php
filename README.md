@@ -1,5 +1,7 @@
 # gliner-rs-php
 
+**WARNING**: This project completely written by `GPT 5.2 Codex` and I am not responsible for any damages caused by it.
+
 PHP bindings for the [`gline-rs`](https://github.com/fbilhaut/gline-rs) GLiNER library, providing fast entity extraction from PHP.
 
 ## Install / connect to PHP
