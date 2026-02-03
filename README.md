@@ -29,6 +29,16 @@ $gliner = new GlinerWrapper($tokenizerPath, $modelPath);
 $results = $gliner->predictBatch($texts, $labels);
 ```
 
+## Models (required)
+
+You must provide a GLiNER tokenizer and ONNX model file (`tokenizer.json` and `model.onnx`) on disk. 
+The extension does not download models for you.
+
+For example you can use the following models:
+
+- Converted ONNX model (large): https://huggingface.co/ineersa/gliner-PII-onnx (converted from https://huggingface.co/nvidia/gliner-PII).
+- Smaller and edge-friendly alternatives: https://huggingface.co/collections/knowledgator/gliner-pii
+
 ## IDE stubs
 
 The file `gliner_stubs.php` provides IDE-friendly stubs for `GlinerWrapper`. Add it to your PHP project or configure it as an include path in your IDE (e.g. PhpStorm: `Settings | PHP | Include Paths`). The stubs are for autocomplete only and should not be loaded in production at runtime.
