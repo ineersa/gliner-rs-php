@@ -35,7 +35,7 @@ jobs:
       - name: Package artifact
         run: |
           tar -czf gliner-rs-php-${{ github.ref_name }}-linux-x86_64.tar.gz \
-            target/release/libgliner_rs_php.so
+            -C target/release libgliner_rs_php.so
 
       - name: Upload release asset
         uses: softprops/action-gh-release@v2
