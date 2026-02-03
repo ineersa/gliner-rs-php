@@ -36,11 +36,8 @@ $results = $gliner->predictBatch($texts, $labels);
 
 You must provide a GLiNER tokenizer and ONNX model file (`tokenizer.json` and `model.onnx`) on disk. 
 The extension does not download models for you.
+Converted ONNX model (large): https://huggingface.co/ineersa/gliner-PII-onnx (converted from https://huggingface.co/nvidia/gliner-PII).
 
-For example you can use the following models:
-
-- Converted ONNX model (large): https://huggingface.co/ineersa/gliner-PII-onnx (converted from https://huggingface.co/nvidia/gliner-PII).
-- Smaller and edge-friendly alternatives: https://huggingface.co/collections/knowledgator/gliner-pii
 
 ## IDE stubs
 
