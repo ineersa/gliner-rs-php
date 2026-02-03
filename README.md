@@ -11,6 +11,7 @@ PHP bindings for the [`gline-rs`](https://github.com/fbilhaut/gline-rs) GLiNER l
 https://github.com/ineersa/gliner-rs-php/releases
 
 Extract it to get `libgliner_rs_php.so`.
+It's compiled for PHP 8.4 linux only, so you may need to compile it yourself for other platforms.
 
 2. Copy the `.so` into your PHP extensions directory (or any path you control):
 

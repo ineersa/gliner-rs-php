@@ -23,10 +23,18 @@ jobs:
         run: |
           sudo apt-get update
           sudo apt-get install -y --no-install-recommends \
+            ca-certificates \
+            gnupg \
+            lsb-release \
+            wget
+          sudo wget -qO /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+          echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
             build-essential \
             clang \
             libclang-dev \
-            php-dev \
+            php8.4-dev \
             pkg-config
 
       - name: Build release
