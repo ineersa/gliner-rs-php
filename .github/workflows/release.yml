@@ -1,0 +1,40 @@
+name: Release Build
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build-linux:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Rust
+        uses: dtolnay/rust-toolchain@v1
+        with:
+          toolchain: 1.88.0
+
+      - name: Install PHP build dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends \
+            build-essential \
+            clang \
+            libclang-dev \
+            php-dev \
+            pkg-config
+
+      - name: Build release
+        run: cargo build --release
+
+      - name: Package artifact
+        run: |
+          tar -czf gliner-rs-php-${{ github.ref_name }}-linux-x86_64.tar.gz \
+            target/release/libgliner_rs_php.so
+
+      - name: Upload release asset
+        uses: softprops/action-gh-release@v2
+        with:
+          files: gliner-rs-php-${{ github.ref_name }}-linux-x86_64.tar.gz
